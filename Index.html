@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerpen & Puisi Satir/Lucu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+        nav {
+            background: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            user-select: none;
+        }
+        .content h2 {
+            color: #333;
+        }
+        .categories {
+            margin-top: 20px;
+        }
+        .categories button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #333;
+            color: white;
+        }
+    </style>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && (event.key === 'c' || event.key === 'x' || event.key === 'v' || event.key === 'u')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>Cerpen & Puisi Satir/Lucu</header>
+    <nav>
+        <a href="#">Beranda</a>
+        <a href="#">Cerpen & Puisi</a>
+        <a href="#">Tentang</a>
+    </nav>
+    <div class="container" id="content-container">
+        <div class="categories">
+            <button onclick="filterContent('cerpen')">Cerpen</button>
+            <button onclick="filterContent('puisi')">Puisi</button>
+            <button onclick="filterContent('semua')">Semua</button>
+        </div>
+        <div class="content" data-category="cerpen">
+            <h2>Cerpen Satir/Lucu</h2>
+            <p>Ini adalah cerpen satir atau lucu...</p>
+        </div>
+        <div class="content" data-category="puisi">
+            <h2>Puisi Satir/Lucu</h2>
+            <p>Ini adalah puisi satir atau lucu...</p>
+        </div>
+    </div>
+    <footer>&copy; 2025 Cerpen & Puisi Satir/Lucu</footer>
+    <script>
+        function filterContent(category) {
+            let contentList = document.querySelectorAll('.content');
+            contentList.forEach(content => {
+                if (category === 'semua' || content.getAttribute('data-category') === category) {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
